@@ -169,7 +169,7 @@ class App extends React.Component {
             <IconButton onClick={this.handlePersistDrawerToggle} className={classNames(classes.menuButton, classes.navIconHideSm)} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" className={classes.grow}>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
               City of Auburn
             </Typography>
             {authentication.loggedIn && (

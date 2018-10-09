@@ -43,6 +43,9 @@ See app.js for both acceptable ways to style
 ##Authorization
 Add new abilities to /redux/helpers/ability.js
 Right now Domain Admins can 'manage' everything and everyone else can manage their dept
+##Deploy
+1. Need to edit deploy.js to correct location
+2. Need to edit manifest.json (see manifest.example.json) in public folder
 
 #WorkFlows
 ##Authorization

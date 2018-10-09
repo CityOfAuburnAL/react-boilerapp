@@ -35,7 +35,17 @@ function defineAbilitiesFor(user) {
     return rules;
 }
 
-//TODO: add timestamp to localstorage and delete it??? or also check cookie? need to refresh cookie as well...
+//add timestamp to localstorage and delete it??? or also check cookie? need to refresh cookie as well...
+//just going to add keep-alive login for now...
+function keepAliveLogin() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user.Email) {
+    //make request to server to refresh login? hopefully that works
+    fetch(`https://api2.auburnalabama.org/me`);
+  }
+}
+const keepAliveTime = 1000 * 60 * 60 * 10;
+setTimeout(keepAliveLogin, keepAliveTime)
 
 //define an empty ability set
 let abilityManager = AbilityBuilder.define(() => {});
@@ -43,6 +53,8 @@ let abilityManager = AbilityBuilder.define(() => {});
 const user = JSON.parse(localStorage.getItem('user'));
 //update user
 abilityManager.update(defineAbilitiesFor(user));
+
+
 //export
 export default abilityManager;
 export { defineAbilitiesFor };
