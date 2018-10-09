@@ -127,7 +127,7 @@ class App extends React.Component {
   };
 
   handleListItemClick = (event, index, route) => {
-    history.push(`${route}`);
+    history.push(`${process.env.PUBLIC_URL}${route}`);
   };
 
   render() {
