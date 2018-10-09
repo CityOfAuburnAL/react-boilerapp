@@ -46,6 +46,9 @@ Right now Domain Admins can 'manage' everything and everyone else can manage the
 ##Deploy
 1. Need to edit deploy.js to correct location
 2. Need to edit manifest.json (see manifest.example.json) in public folder
+3. If sub-directory need to edit package.json and Router in App.js
+4. Need url rewrite in IIS Does Not Match the Pattern .*\.[\d\w]+$ , rewrite to [/subdirectory]/index.html
+https://medium.com/@svinkle/how-to-deploy-a-react-app-to-a-subdirectory-f694d46427c1
 
 #WorkFlows
 ##Authorization

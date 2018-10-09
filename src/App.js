@@ -122,12 +122,12 @@ class App extends React.Component {
   };
 
   handleLogout = () => {
-    history.push('/login');
+    history.push(`${process.env.PUBLIC_URL}/login`);
     this.handleAccountMenuClose();
   };
 
   handleListItemClick = (event, index, route) => {
-    history.push(route);
+    history.push(`${route}`);
   };
 
   render() {
@@ -139,14 +139,14 @@ class App extends React.Component {
       <List component="nav">
         <ListItem
           button
-          selected={currentPath === '/'}
+          selected={currentPath === `${process.env.PUBLIC_URL}/`}
           onClick={event => this.handleListItemClick(event, 0, '/')}
         >
           Home
         </ListItem>
         <ListItem
           button
-          selected={currentPath === '/it'}
+          selected={currentPath === `${process.env.PUBLIC_URL}/it`}
           onClick={event => this.handleListItemClick(event, 1, '/it')}
         >
           Information Technology
@@ -238,11 +238,11 @@ class App extends React.Component {
         </Hidden>
         <main className={classNames(classes.content, !persistDrawer && classes.contentShift)}>
           <div className={classes.toolbar} />
-          <Router history={history}>
+          <Router history={history} basename={'/'}>
             <SwitchRoute>
-              <PrivateRoute exact path="/" component={HomePage}></PrivateRoute>
-              <PrivateRoute path="/it" component={InformationTechnologyPage}></PrivateRoute>
-              <Route path="/login" component={Login}></Route>
+              <PrivateRoute exact path={`${process.env.PUBLIC_URL}/`} component={HomePage}></PrivateRoute>
+              <PrivateRoute path={`${process.env.PUBLIC_URL}/it`} component={InformationTechnologyPage}></PrivateRoute>
+              <Route path={`${process.env.PUBLIC_URL}/login`} component={Login}></Route>
               <Route component={NotFoundPage}/>
             </SwitchRoute>
           </Router>
